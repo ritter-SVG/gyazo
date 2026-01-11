@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyazo - Capture, Save & Share Moments Instantly</title>
+    <!-- SEO 适配 Gyazo 核心关键词 -->
+    <meta name="description" content="Capture screenshots, record videos, and share instantly with Gyazo. Save your moments, find them fast, and collaborate seamlessly—free to start!">
+    <meta name="keywords" content="Gyazo, screenshot tool, screen recorder, instant share, cloud storage, visual library">
+    <style>
+        /* 全局样式：贴合 Gyazo 官网科技简约风 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #2d3748;
+            line-height: 1.7;
+        }
+        /* 主容器：居中适配所有设备 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 顶部导航：简约品牌展示 */
+        .navbar {
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .navbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2d3748;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #4299e1; /* Gyazo 主色调（科技蓝） */
+        }
+        .nav-link {
+            color: #718096;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #4299e1;
+        }
+        /* 英雄区：核心卖点+视觉焦点 */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .hero h1 span {
+            color: #4299e1;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .hero-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+        }
+        /* CTA 按钮：突出免费使用，匹配官网风格 */
+        .cta-btn {
+            display: inline-block;
+            background: #4299e1;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 16px 45px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(66,153,225,0.3);
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(66,153,225,0.4);
+        }
+        .cta-note {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        /* 功能区：3列布局，突出核心优势 */
+        .features {
+            padding: 60px 0;
+            background-color: #f8fafc;
+            margin: 40px 0;
+            border-radius: 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 60px;
+            color: #2d3748;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #4299e1;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        .feature-card p {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+        /* 信任区：用户数据+证言，增强可信度 */
+        .trust {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .trust-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #4299e1;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+        .testimonial {
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        .testimonial-author {
+            color: #2d3748;
+            font-weight: 600;
+            font-style: normal;
+        }
+        /* 底部：简约信息+合规链接 */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-link {
+            color: #718096;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: #4299e1;
+        }
+        /* 响应式：适配移动端 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .features {
+                padding: 40px 0;
+            }
+            .trust-stats {
+                gap: 30px;
+            }
+            .nav-link {
+                margin-left: 15px;
+                font-size: 0.85rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero {
+                padding: 50px 0;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .cta-btn {
+                padding: 14px 35px;
+                font-size: 1.1rem;
+                width: 100%;
+            }
+            .navbar-inner {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <div class="container navbar-inner">
+            <a href="https://gyazo.com/" class="logo">Gy<span>azo</span></a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#trust" class="nav-link">Testimonials</a>
+                <a href="https://gyazo.com/pricing" target="_blank" class="nav-link">Pricing</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区：核心卖点+引导 -->
+    <section class="hero">
+        <div class="container">
+            <h1>Capture & Share Your <span>Moments</span> in Seconds</h1>
+            <p>Save screenshots, record videos, and build your visual library—all with one click. Gyazo works seamlessly across desktop, mobile, and browser.</p>
+            
+            <!-- 核心图片：Gyazo 功能展示图（可替换为官网截图或自定义素材） -->
+            <img src="https://picsum.photos/id/0/800/450" alt="Gyazo - Capture, Save & Share" class="hero-img">
+            
+            <!-- CTA 按钮：链接到 Gyazo 官网注册/下载页 -->
+            <a href="https://gyazo.com/" target="_blank" rel="noopener noreferrer" class="cta-btn">Start Using Gyazo Free</a>
+            <p class="cta-note">No credit card required • 20M+ users worldwide • Secure cloud storage</p>
+        </div>
+    </section>
+
+    <!-- 功能区：突出核心优势 -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Millions Choose Gyazo</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Instant Capture</h3>
+                    <p>Capture screenshots or record videos with custom hotkeys—no interruptions to your workflow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud Sync</h3>
+                    <p>All captures are auto-synced to the cloud, so you can access them anytime, anywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>One-Click Share</h3>
+                    <p>Generate shareable links instantly—preview directly in chats and social media.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>OCR text recognition lets you search captures by words, app names, or URLs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <h3>Organize Collections</h3>
+                    <p>Group captures by theme and collaborate with teammates on shared collections.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure & Private</h3>
+                    <p>Set passwords and permissions—control who can view your captures with hashed URLs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 信任区：用户数据+证言 -->
+    <section class="trust" id="trust">
+        <div class="container">
+            <div class="trust-stats">
+                <div class="stat-item">
+                    <div class="stat-number">23M+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">242+</div>
+                    <div class="stat-label">Countries & Regions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3.1B+</div>
+                    <div class="stat-label">Total Uploads</div>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                "I use it about fifteen times a day. I love how I can press print screen and then just get the link."
+                <div class="testimonial-author">— Neil White, CTO at Centercode</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://gyazo.com/terms" target="_blank" class="footer-link">Terms of Service</a>
+                <a href="https://gyazo.com/privacy" target="_blank" class="footer-link">Privacy Policy</a>
+                <a href="https://gyazo.com/support" target="_blank" class="footer-link">Support</a>
+                <a href="https://gyazo.com/blog" target="_blank" class="footer-link">Blog</a>
+            </div>
+            <p>© 2024 Gyazo. All rights reserved. Used by individuals, teams, and businesses worldwide.</p>
+        </div>
+    </footer>
+</body>
+</html>
